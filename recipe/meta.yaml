@@ -10,10 +10,8 @@ source:
   sha256: 244a822df6293fee4bf44d6c4c70d5da7d7d723ebdb3c608c9717b4c338e4d3f
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
-  # skip py37 until pycondor is available for that platform
-  skip: true  # [py==37]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
