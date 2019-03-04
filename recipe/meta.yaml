@@ -42,6 +42,7 @@ requirements:
     - scipy >=1.2.0
     - setuptools
     - six
+    - HTMLParser  # [py<30]
 
 test:
   requires:
