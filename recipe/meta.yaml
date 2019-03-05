@@ -1,5 +1,5 @@
 {% set name = "gwdetchar" %}
-{% set version = "0.1.1" %}
+{% set version = "0.2.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 244a822df6293fee4bf44d6c4c70d5da7d7d723ebdb3c608c9717b4c338e4d3f
+  sha256: 67e14d14371ced15318d846a2b297a86b5247411ed36926bd8a3657a34e70162
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
@@ -39,7 +39,7 @@ requirements:
     - python-lal
     - python-ldas-tools-framecpp
     - scikit-learn
-    - scipy >=0.18.1
+    - scipy >=1.2.0
     - setuptools
     - six
 
@@ -55,9 +55,16 @@ test:
     - gwdetchar.const
     - gwdetchar.daq
     - gwdetchar.io
+    - gwdetchar.io.html
+    - gwdetchar.io.ligolw
+    - gwdetchar.io.datafind
     - gwdetchar.lasso
-    - gwdetchar.misc
+    - gwdetchar.lasso.plot
+    - gwdetchar.plot
     - gwdetchar.omega
+    - gwdetchar.omega.plot
+    - gwdetchar.omega.html
+    - gwdetchar.omega.config
     - gwdetchar.saturation
     - gwdetchar.scattering
     - gwdetchar.tests
