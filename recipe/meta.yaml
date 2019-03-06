@@ -58,13 +58,16 @@ test:
     - gwdetchar.io.html
     - gwdetchar.io.ligolw
     - gwdetchar.io.datafind
+    - gwdetchar.io.tests
     - gwdetchar.lasso
     - gwdetchar.lasso.plot
+    - gwdetchar.lasso.tests
     - gwdetchar.plot
     - gwdetchar.omega
     - gwdetchar.omega.plot
     - gwdetchar.omega.html
     - gwdetchar.omega.config
+    - gwdetchar.omega.tests
     - gwdetchar.saturation
     - gwdetchar.scattering
     - gwdetchar.tests
