@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 7e8291e42170452141582db6a2885a99dd96e4ece42187313de8f435d25e4cf2
+  patches:
+    - unused-ligolw-import.patch
 
 build:
   number: 0
@@ -25,18 +27,17 @@ requirements:
     - python >=2.7
     - astropy >=1.2
     - beautifulsoup4
-    - dqsegdb
     - gwdatafind
     - gwpy >=0.13.0
     - gwtrigfind
-    - lscsoft-glue >=1.60.0
     - lxml
+    - markuppy
     - matplotlib >=2.0.0
     - numpy >=1.10
     - pandas
-    - pathlib  # [py<30]
+    - pathlib2  # [py<36]
     - pycondor
-    - python-lal
+    - pygments
     - python-ldas-tools-framecpp
     - scikit-learn
     - scipy >=1.2.0
@@ -56,7 +57,6 @@ test:
     - gwdetchar.daq
     - gwdetchar.io
     - gwdetchar.io.html
-    - gwdetchar.io.ligolw
     - gwdetchar.io.datafind
     - gwdetchar.io.tests
     - gwdetchar.lasso
