@@ -8,8 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 102e5cd5d45e9dc1bad7f247212d4e00bf7dc00aa20b63f7dd0197127f866346
-  patches:
-    - unused-ligolw-import.patch
 
 build:
   number: 0
