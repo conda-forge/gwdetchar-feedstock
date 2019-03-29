@@ -88,8 +88,8 @@ test:
     # check HTML files were built and installed
     - test -f ${SP_DIR}/gwdetchar/_static/bootstrap-ligo.min.css
     - test -f ${SP_DIR}/gwdetchar/_static/bootstrap-ligo.min.js
-    - test -f ${SP_DIR}/gwdetchar/_static/gwdetchar-omega.min.css
-    - test -f ${SP_DIR}/gwdetchar/_static/gwdetchar-omega.min.js
+    - test -f ${SP_DIR}/gwdetchar/_static/gwdetchar.min.css
+    - test -f ${SP_DIR}/gwdetchar/_static/gwdetchar.min.js
 
 about:
   home: https://github.com/gwdetchar/gwdetchar/
