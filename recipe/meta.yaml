@@ -1,5 +1,5 @@
 {% set name = "gwdetchar" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 33cb12fc0164139cf4ea119c1bbf057425e07a5cb7c4587c62995a6e0a7137ec
+  sha256: 91559a0f56dbeced2c06ed2a615f5f817af258ad32094172223e9c74490d2a7f
 
 build:
   number: 0
@@ -70,6 +70,8 @@ test:
     - gwdetchar.omega.tests
     - gwdetchar.saturation
     - gwdetchar.scattering
+    - gwdetchar.scattering.plot
+    - gwdetchar.scattering.tests
     - gwdetchar.tests
     - gwdetchar.utils
   commands:
@@ -82,6 +84,7 @@ test:
     - gwdetchar-omega-batch --help
     - gwdetchar-overflow --help
     - gwdetchar-scattering --help
+    - python -m gwdetchar.scattering --help
     - gwdetchar-slow-correlation --help
     - gwdetchar-software-saturations --help
     - wdq-batch --help
@@ -92,7 +95,7 @@ test:
     - test -f ${SP_DIR}/gwdetchar/_static/gwdetchar.min.js
 
 about:
-  home: https://github.com/gwdetchar/gwdetchar/
+  home: https://gwdetchar.readthedocs.io
   license: GPLv3
   license_family: GPL
   license_file: LICENSE
