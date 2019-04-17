@@ -1,7 +1,7 @@
 About gwdetchar
 ===============
 
-Home: https://github.com/gwdetchar/gwdetchar/
+Home: https://gwdetchar.readthedocs.io
 
 Package license: GPLv3
 
