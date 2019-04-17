@@ -95,7 +95,7 @@ test:
     - test -f ${SP_DIR}/gwdetchar/_static/gwdetchar.min.js
 
 about:
-  home: https://gwdetchar.readthedocs.io
+  home: https://github.com/gwdetchar/gwdetchar/
   license: GPLv3
   license_family: GPL
   license_file: LICENSE
