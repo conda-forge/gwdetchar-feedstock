@@ -16,6 +16,8 @@ build:
 
 requirements:
   host:
+    - jsmin
+    - libsass
     - pip
     - python
     - setuptools
@@ -40,8 +42,6 @@ requirements:
     - scikit-learn
     - scipy >=1.2.0
     - setuptools
-    - libsass
-    - jsmin
 
 test:
   requires:
