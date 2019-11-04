@@ -1,5 +1,5 @@
 {% set name = "gwdetchar" %}
-{% set version = "0.5.3" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 663a6f7a217ce6fc12e4b44e99fc023f4a2173a8158d1954fe4a39fc35daaf21
+  sha256: 3be2d05e8459aec336e853409f5a077f0d4f996ea753853fce4009705223c281
 
 build:
   number: 0
   skip: true  # [win]
+  skip: True  # [py2k]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
@@ -22,14 +23,14 @@ requirements:
     - python
     - setuptools
   run:
-    - python >=2.7
+    - python >=3.5
     - astropy >=1.2
     - beautifulsoup4
     - gwdatafind
     - gwpy >=0.13.0
     - gwtrigfind
     - lxml
-    - markuppy
+    - markuppy >=1.14
     - matplotlib >=2.0.0
     - numpy >=1.10
     - pandas
@@ -42,12 +43,12 @@ requirements:
     - scikit-learn
     - scipy >=1.2.0
     - setuptools
-    - six
 
 test:
   requires:
+    - flake8
     - pytest
-    - mock  # [py<30]
+    - coverage
   imports:
     - gwdetchar
     - gwdetchar.cds
@@ -87,12 +88,7 @@ test:
     - python -m gwdetchar.scattering --help
     - gwdetchar-slow-correlation --help
     - gwdetchar-software-saturations --help
-    - wdq-batch --help
-    # check HTML files were built and installed
-    - test -f ${SP_DIR}/gwdetchar/_static/bootstrap-ligo.min.css
-    - test -f ${SP_DIR}/gwdetchar/_static/bootstrap-ligo.min.js
-    - test -f ${SP_DIR}/gwdetchar/_static/gwdetchar.min.css
-    - test -f ${SP_DIR}/gwdetchar/_static/gwdetchar.min.js
+    - python -m gwdetchar.nagios --help
 
 about:
   home: https://gwdetchar.readthedocs.io
