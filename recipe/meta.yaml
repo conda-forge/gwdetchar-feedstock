@@ -20,14 +20,14 @@ requirements:
     - python
     - setuptools
   run:
-    - python >=2.7
+    - python >=3.5
     - astropy >=1.2
     - beautifulsoup4
     - gwdatafind
     - gwpy >=0.13.0
     - gwtrigfind
     - lxml
-    - markuppy
+    - markuppy >=1.14
     - matplotlib >=2.0.0
     - numpy >=1.10
     - pandas
@@ -43,8 +43,9 @@ requirements:
 
 test:
   requires:
+    - flake8
     - pytest
-    - mock  # [py<30]
+    - coverage
   imports:
     - gwdetchar
     - gwdetchar.cds
