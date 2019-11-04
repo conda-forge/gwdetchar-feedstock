@@ -40,6 +40,8 @@ requirements:
     - scikit-learn
     - scipy >=1.2.0
     - setuptools
+    - libsass
+    - jsmin
 
 test:
   requires:
