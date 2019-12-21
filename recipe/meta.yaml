@@ -19,6 +19,7 @@ requirements:
     - python
     - setuptools
   run:
+    - python
     - astropy >=1.2
     - beautifulsoup4
     - gwdatafind
