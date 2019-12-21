@@ -1,5 +1,5 @@
 {% set name = "gwdetchar" %}
-{% set version = "1.0.0" %}
+{% set version = "1.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3be2d05e8459aec336e853409f5a077f0d4f996ea753853fce4009705223c281
+  sha256: 88db3af35d052e77ab9f69812a4825caca40a696984f867502c15bf9c65d8ece
 
 build:
   number: 0
@@ -17,8 +17,6 @@ build:
 
 requirements:
   host:
-    - jsmin
-    - libsass
     - pip
     - python
     - setuptools
@@ -32,7 +30,7 @@ requirements:
     - lxml
     - markuppy >=1.14
     - matplotlib >=2.0.0
-    - numpy >=1.10
+    - numpy >=1.16
     - pandas
     - pathlib2  # [py<36]
     - pycondor
