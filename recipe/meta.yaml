@@ -2,19 +2,19 @@
 {% set version = "1.0.2" %}
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: "0fc90969cdcd56a9ffdea3400034caab58795685682387040f33583cc5efc55e"
+  sha256: 0fc90969cdcd56a9ffdea3400034caab58795685682387040f33583cc5efc55e
   patches:
     # fix test failures on python3.8
     - 0001-gwdetchar.conftest-add-pytest-fixture-overrides.patch
 
 build:
   number: 1
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
@@ -22,7 +22,6 @@ requirements:
     - python
     - setuptools
   run:
-    - python
     - astropy >=1.2
     - beautifulsoup4
     - gwdatafind
@@ -35,6 +34,7 @@ requirements:
     - pandas
     - pathlib2  # [py<36]
     - pycondor
+    - python
     - pytz
     - coloredlogs
     - pygments
@@ -90,11 +90,11 @@ test:
     - python -m gwdetchar.nagios --help
 
 about:
-  home: https://gwdetchar.readthedocs.io
-  license: GPLv3
-  license_family: GPL
-  license_file: LICENSE
-  summary: A python package for gravitational-wave detector characterisation
+  home: "https://gwdetchar.readthedocs.io"
+  license: "GPL-3.0-or-later"
+  license_family: "GPL"
+  license_file: "LICENSE"
+  summary: "A python package for gravitational-wave detector characterisation"
   description: |
     This package provides a set of python utilities for gravitational-wave
     detector characterisation and data quality.
