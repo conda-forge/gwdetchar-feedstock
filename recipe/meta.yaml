@@ -8,9 +8,12 @@ package:
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
   sha256: "0fc90969cdcd56a9ffdea3400034caab58795685682387040f33583cc5efc55e"
+  patches:
+    # fix test failures on python3.8
+    - 0001-gwdetchar.conftest-add-pytest-fixture-overrides.patch
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
