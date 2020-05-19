@@ -13,7 +13,7 @@ source:
     - 0001-gwdetchar.conftest-add-pytest-fixture-overrides.patch
 
 build:
-  number: 1
+  number: 2
   script: "{{ PYTHON }} -m pip install . -vv"
   skip: true  # [win or py<35]
 
@@ -30,7 +30,7 @@ requirements:
     - gwtrigfind
     - lxml
     - markuppy >=1.14
-    - matplotlib >=2.0.0
+    - matplotlib-base >=2.0.0
     - numpy >=1.16
     - pandas
     - pathlib2  # [py<36]
