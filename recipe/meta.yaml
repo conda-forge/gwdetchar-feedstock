@@ -13,7 +13,7 @@ source:
     - 0001-gwdetchar.conftest-add-pytest-fixture-overrides.patch
 
 build:
-  number: 2
+  number: 3
   script: "{{ PYTHON }} -m pip install . -vv"
   skip: true  # [win or py<35]
 
