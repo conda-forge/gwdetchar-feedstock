@@ -49,6 +49,7 @@ test:
     - flake8
     - pytest
     - coverage
+    - gwpy <2.0.0a0
   imports:
     - gwdetchar
     - gwdetchar.cds
