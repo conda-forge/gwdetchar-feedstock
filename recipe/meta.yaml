@@ -8,9 +8,6 @@ package:
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
   sha256: 161be9d9b58708575bc881edb0ea5d0fa8a9adc4b934a8d059d7a5149d527d56
-  #patches:
-    # fix test failures on python > 3.8
-    #- 0001-gwdetchar.conftest-add-pytest-fixture-overrides.patch
 
 build:
   number: 0
@@ -64,26 +61,21 @@ test:
     - gwdetchar.io
     - gwdetchar.io.html
     - gwdetchar.io.datafind
-    - gwdetchar.io.tests
     - gwdetchar.lasso
     - gwdetchar.lasso.plot
-    - gwdetchar.lasso.tests
     - gwdetchar.nagios
     - gwdetchar.plot
     - gwdetchar.omega
     - gwdetchar.omega.plot
     - gwdetchar.omega.html
     - gwdetchar.omega.config
-    - gwdetchar.omega.tests
     - gwdetchar.saturation
     - gwdetchar.scattering
     - gwdetchar.scattering.plot
-    - gwdetchar.scattering.tests
-    - gwdetchar.tests
     - gwdetchar.utils
   commands:
     # run unit tests
-    - python -m pytest --pyargs {{ name }}
+    - python -m pytest --verbose --pyargs {{ name }}
     # check scripts run ok
     - python -m gwdetchar.conlog --help
     - gwdetchar-lasso-correlation --help
@@ -96,8 +88,6 @@ test:
     - python -m gwdetchar.scattering.simple --help
     - gwdetchar-slow-correlation --help
     - gwdetchar-software-saturations --help
-    # check install
-    - pip check
 
 about:
   home: https://gwdetchar.readthedocs.io
