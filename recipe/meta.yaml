@@ -1,5 +1,5 @@
 {% set name = "gwdetchar" %}
-{% set version = "1.0.2" %}
+{% set version = "1.1.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,48 +7,53 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 0fc90969cdcd56a9ffdea3400034caab58795685682387040f33583cc5efc55e
+  sha256: 161be9d9b58708575bc881edb0ea5d0fa8a9adc4b934a8d059d7a5149d527d56
   patches:
-    # fix test failures on python3.8
+    # fix test failures on python > 3.8
     - 0001-gwdetchar.conftest-add-pytest-fixture-overrides.patch
 
 build:
-  number: 2
+  number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
   skip: true  # [win or py<35]
+  entry_points:
+    - gwdetchar-conlog = gwdetchar.conlog:main
+    - gwdetchar-nagios = gwdetchar.nagios.__main__:main
+    - gwdetchar-omega = gwdetchar.omega.__main__:main
+    - gwdetchar-omega-batch = gwdetchar.omega.batch:main
+    - gwdetchar-scattering = gwdetchar.scattering.__main__:main
+    - gwdetchar-scattering-simple = gwdetchar.scattering.simple:main
 
 requirements:
   host:
     - pip
-    - python
-    - setuptools
+    - python >=3.6
+    - setuptools >=20.2.2
   run:
-    - astropy >=1.2
+    - astropy >=3.0.0
     - beautifulsoup4
     - gwdatafind
-    - gwpy >=0.13.0
+    - gwpy >=2.0.0
     - gwtrigfind
     - lxml
     - markuppy >=1.14
-    - matplotlib-base >=2.0.0
+    - matplotlib-base >=3.1.0
     - numpy >=1.16
     - pandas
-    - pathlib2  # [py<36]
     - pycondor
-    - python
+    - python >=3.6
     - pytz
     - coloredlogs
-    - pygments
+    - pygments >=2.7.0
     - python-ldas-tools-framecpp
     - scikit-learn
     - scipy >=1.2.0
-    - setuptools
 
 test:
   requires:
     - flake8
-    - pytest
-    - coverage
+    - pytest >=3.3.0
+    - pytest-cov >2.4.0
   imports:
     - gwdetchar
     - gwdetchar.cds
@@ -63,6 +68,7 @@ test:
     - gwdetchar.lasso
     - gwdetchar.lasso.plot
     - gwdetchar.lasso.tests
+    - gwdetchar.nagios
     - gwdetchar.plot
     - gwdetchar.omega
     - gwdetchar.omega.plot
@@ -79,16 +85,17 @@ test:
     # run unit tests
     - python -m pytest --pyargs {{ name }}
     # check scripts run ok
+    - python -m gwdetchar.conlog --help
     - gwdetchar-lasso-correlation --help
     - gwdetchar-mct --help
-    - gwdetchar-omega --help
-    - gwdetchar-omega-batch --help
+    - python -m gwdetchar.nagios --help
+    - python -m gwdetchar.omega --help
+    - python -m gwdetchar.omega.batch --help
     - gwdetchar-overflow --help
-    - gwdetchar-scattering --help
     - python -m gwdetchar.scattering --help
+    - python -m gwdetchar.scattering.simple --help
     - gwdetchar-slow-correlation --help
     - gwdetchar-software-saturations --help
-    - python -m gwdetchar.nagios --help
 
 about:
   home: "https://gwdetchar.readthedocs.io"
