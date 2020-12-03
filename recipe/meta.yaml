@@ -27,7 +27,7 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python
     - setuptools >=20.2.2
   run:
     - astropy >=3.0.0
@@ -41,7 +41,7 @@ requirements:
     - numpy >=1.16
     - pandas
     - pycondor
-    - python >=3.6
+    - python
     - pytz
     - coloredlogs
     - pygments >=2.7.0
