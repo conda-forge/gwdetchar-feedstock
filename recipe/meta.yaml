@@ -96,6 +96,8 @@ test:
     - python -m gwdetchar.scattering.simple --help
     - gwdetchar-slow-correlation --help
     - gwdetchar-software-saturations --help
+    # check install
+    - pip check
 
 about:
   home: "https://gwdetchar.readthedocs.io"
