@@ -1,5 +1,5 @@
 {% set name = "gwdetchar" %}
-{% set version = "1.1.0" %}
+{% set version = "2.0.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,41 +7,48 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 161be9d9b58708575bc881edb0ea5d0fa8a9adc4b934a8d059d7a5149d527d56
+  sha256: 9709a4b0a4610009fb7b6e683e3c0731b41af3d8ea32610f90bad3490de76878
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [win]
+  noarch: python
   entry_points:
     - gwdetchar-conlog = gwdetchar.conlog:main
+    - gwdetchar-lasso-correlation = gwdetchar.lasso.__main__:main
+    - gwdetchar-mct = gwdetchar.mct:main
     - gwdetchar-nagios = gwdetchar.nagios.__main__:main
     - gwdetchar-omega = gwdetchar.omega.__main__:main
     - gwdetchar-omega-batch = gwdetchar.omega.batch:main
+    - gwdetchar-overflow = gwdetchar.overflow:main
     - gwdetchar-scattering = gwdetchar.scattering.__main__:main
     - gwdetchar-scattering-simple = gwdetchar.scattering.simple:main
+    - gwdetchar-slow-correlation = gwdetchar.lasso.old:main
+    - gwdetchar-software-saturations = gwdetchar.saturation.__main__:main
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6
     - setuptools >=20.2.2
   run:
     - astropy >=3.0.0
     - beautifulsoup4
+    - coloredlogs
     - gwdatafind
     - gwpy >=2.0.0
     - gwtrigfind
+    - lalsuite
+    - lscsoft-glue >=2.0.0
     - lxml
     - markuppy >=1.14
     - matplotlib-base >=3.1.0
     - numpy >=1.16
     - pandas
     - pycondor
-    - python
+    - python >=3.6
+    - pygments >=2.7.3
     - pytz
-    - coloredlogs
-    - pygments >=2.7.0
     - python-ldas-tools-framecpp
     - scikit-learn
     - scipy >=1.2.0
@@ -78,16 +85,16 @@ test:
     - python -m pytest --verbose --pyargs {{ name }}
     # check scripts run ok
     - python -m gwdetchar.conlog --help
-    - gwdetchar-lasso-correlation --help
-    - gwdetchar-mct --help
+    - python -m gwdetchar.lasso --help
+    - python -m gwdetchar.lasso.old --help
+    - python -m gwdetchar.mct --help
     - python -m gwdetchar.nagios --help
     - python -m gwdetchar.omega --help
     - python -m gwdetchar.omega.batch --help
-    - gwdetchar-overflow --help
+    - python -m gwdetchar.overflow --help
+    - python -m gwdetchar.saturation --help
     - python -m gwdetchar.scattering --help
     - python -m gwdetchar.scattering.simple --help
-    - gwdetchar-slow-correlation --help
-    - gwdetchar-software-saturations --help
 
 about:
   home: https://gwdetchar.readthedocs.io
