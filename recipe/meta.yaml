@@ -8,6 +8,9 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 4f39363a7af48259ebf3962a9c357112f1bfbe4c4ee70c1f73a9f1913b1c9ddb
+  patches:
+    # https://github.com/gwdetchar/gwdetchar/pull/400
+    - no-lalsuite.patch
 
 build:
   number: 1
@@ -38,7 +41,6 @@ requirements:
     - gwdatafind
     - gwpy >=2.0.0
     - gwtrigfind
-    - lalsuite
     - lscsoft-glue >=2.0.0
     - lxml
     - markuppy >=1.14
