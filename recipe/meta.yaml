@@ -56,33 +56,14 @@ requirements:
 test:
   requires:
     - flake8
+    - pip
     - pytest >=3.3.0
     - pytest-cov >2.4.0
-  imports:
-    - gwdetchar
-    - gwdetchar.cds
-    - gwdetchar.cli
-    - gwdetchar.condor
-    - gwdetchar.const
-    - gwdetchar.daq
-    - gwdetchar.io
-    - gwdetchar.io.html
-    - gwdetchar.io.datafind
-    - gwdetchar.lasso
-    - gwdetchar.lasso.plot
-    - gwdetchar.nagios
-    - gwdetchar.plot
-    - gwdetchar.omega
-    - gwdetchar.omega.plot
-    - gwdetchar.omega.html
-    - gwdetchar.omega.config
-    - gwdetchar.saturation
-    - gwdetchar.scattering
-    - gwdetchar.scattering.plot
-    - gwdetchar.utils
   commands:
+    # check requirements
+    - python -m pip check
     # run unit tests
-    - python -m pytest --verbose --pyargs {{ name }}
+    - python -m pytest -ra --verbose --pyargs {{ name }}
     # check scripts run ok
     - python -m gwdetchar.conlog --help
     - python -m gwdetchar.lasso --help
@@ -95,6 +76,18 @@ test:
     - python -m gwdetchar.saturation --help
     - python -m gwdetchar.scattering --help
     - python -m gwdetchar.scattering.simple --help
+    # check entry points
+    - gwdetchar-conlog --help
+    - gwdetchar-lasso-correlation --help
+    - gwdetchar-mct --help
+    - gwdetchar-nagios --help
+    - gwdetchar-omega --help
+    - gwdetchar-omega-batch --help
+    - gwdetchar-overflow --help
+    - gwdetchar-scattering --help
+    - gwdetchar-scattering-simple --help
+    - gwdetchar-slow-correlation --help
+    - gwdetchar-software-saturations --help
 
 about:
   home: https://gwdetchar.readthedocs.io
