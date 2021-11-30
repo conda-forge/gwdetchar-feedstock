@@ -5,7 +5,7 @@ Home: https://gwdetchar.readthedocs.io
 
 Package license: GPL-3.0-or-later
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gwdetchar-feedstock-eg-feedstock/blob/master/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gwdetchar-feedstock/blob/master/LICENSE.txt)
 
 Summary: A python package for gravitational-wave detector characterisation
 
@@ -19,8 +19,8 @@ Current build status
 
 <table><tr><td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=master">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gwdetchar-feedstock-eg-feedstock?branchName=master">
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6245&branchName=master">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gwdetchar-feedstock?branchName=master">
       </a>
     </td>
   </tr>
@@ -121,5 +121,8 @@ Feedstock Maintainers
 =====================
 
 * [@alurban](https://github.com/alurban/)
+* [@areeda](https://github.com/areeda/)
 * [@duncanmmacleod](https://github.com/duncanmmacleod/)
+* [@eagoetz](https://github.com/eagoetz/)
+* [@robertbruntz](https://github.com/robertbruntz/)
 
