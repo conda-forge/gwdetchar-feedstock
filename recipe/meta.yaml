@@ -1,5 +1,5 @@
 {% set name = "gwdetchar" %}
-{% set version = "2.0.4" %}
+{% set version = "2.0.5" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 4ea6929b595bf2a8db20547b946d8f0b2e2a4caaa591c8638b4209353b03fe80
+  sha256: 4f39363a7af48259ebf3962a9c357112f1bfbe4c4ee70c1f73a9f1913b1c9ddb
 
 build:
   number: 0
@@ -110,3 +110,6 @@ extra:
   recipe-maintainers:
     - alurban
     - duncanmmacleod
+    - eagoetz
+    - areeda
+    - robertbruntz
