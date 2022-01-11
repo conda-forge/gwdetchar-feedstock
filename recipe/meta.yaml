@@ -61,6 +61,8 @@ test:
     - pip
     - pytest >=3.3.0
     - pytest-cov >2.4.0
+    # pycondor is broken on Python 3.10
+    - python <3.10.0a0
   commands:
     # check requirements
     - python -m pip check
