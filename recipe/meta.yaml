@@ -2,15 +2,18 @@
 {% set version = "2.0.5" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 4f39363a7af48259ebf3962a9c357112f1bfbe4c4ee70c1f73a9f1913b1c9ddb
+  patches:
+    # https://github.com/gwdetchar/gwdetchar/pull/400
+    - no-lalsuite.patch
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
   entry_points:
@@ -38,7 +41,6 @@ requirements:
     - gwdatafind
     - gwpy >=2.0.0
     - gwtrigfind
-    - lalsuite
     - lscsoft-glue >=2.0.0
     - lxml
     - markuppy >=1.14
@@ -56,33 +58,18 @@ requirements:
 test:
   requires:
     - flake8
+    - pip
     - pytest >=3.3.0
     - pytest-cov >2.4.0
-  imports:
-    - gwdetchar
-    - gwdetchar.cds
-    - gwdetchar.cli
-    - gwdetchar.condor
-    - gwdetchar.const
-    - gwdetchar.daq
-    - gwdetchar.io
-    - gwdetchar.io.html
-    - gwdetchar.io.datafind
-    - gwdetchar.lasso
-    - gwdetchar.lasso.plot
-    - gwdetchar.nagios
-    - gwdetchar.plot
-    - gwdetchar.omega
-    - gwdetchar.omega.plot
-    - gwdetchar.omega.html
-    - gwdetchar.omega.config
-    - gwdetchar.saturation
-    - gwdetchar.scattering
-    - gwdetchar.scattering.plot
-    - gwdetchar.utils
+    # https://github.com/gwdetchar/gwdetchar/issues/411
+    - python <3.10.0a0
+    # https://github.com/gwdetchar/gwdetchar/issues/409
+    - pygments < 2.11.0a0
   commands:
+    # check requirements
+    - python -m pip check
     # run unit tests
-    - python -m pytest --verbose --pyargs {{ name }}
+    - python -m pytest -ra --verbose --pyargs {{ name }}
     # check scripts run ok
     - python -m gwdetchar.conlog --help
     - python -m gwdetchar.lasso --help
@@ -95,6 +82,18 @@ test:
     - python -m gwdetchar.saturation --help
     - python -m gwdetchar.scattering --help
     - python -m gwdetchar.scattering.simple --help
+    # check entry points
+    - gwdetchar-conlog --help
+    - gwdetchar-lasso-correlation --help
+    - gwdetchar-mct --help
+    - gwdetchar-nagios --help
+    - gwdetchar-omega --help
+    - gwdetchar-omega-batch --help
+    - gwdetchar-overflow --help
+    - gwdetchar-scattering --help
+    - gwdetchar-scattering-simple --help
+    - gwdetchar-slow-correlation --help
+    - gwdetchar-software-saturations --help
 
 about:
   home: https://gwdetchar.readthedocs.io
