@@ -1,5 +1,5 @@
 {% set name = "gwdetchar" %}
-{% set version = "2.0.9" %}
+{% set version = "2.0.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: dc188b1bd9ac79acbb311eacc6f70f2b8aea043539130fc909630fc628275c58
+  sha256: f4725ab899a6dd42123f5265a5daab941e235541174b7f0b70821a0491c3cd1e
 
 build:
   number: 0
