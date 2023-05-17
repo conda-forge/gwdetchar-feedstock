@@ -1,7 +1,7 @@
 About gwdetchar-feedstock
 =========================
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gwdetchar-feedstock/blob/main/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gwdetchar-feedstock-eg-feedstock/blob/main/LICENSE.txt)
 
 Home: https://gwdetchar.readthedocs.io
 
@@ -19,8 +19,8 @@ Current build status
 
 <table><tr><td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6245&branchName=main">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gwdetchar-feedstock?branchName=main">
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=main">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gwdetchar-feedstock-eg-feedstock?branchName=main">
       </a>
     </td>
   </tr>
