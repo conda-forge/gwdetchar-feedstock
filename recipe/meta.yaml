@@ -1,5 +1,5 @@
 {% set name = "gwdetchar" %}
-{% set version = "2.0.10" %}
+{% set version = "2.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f4725ab899a6dd42123f5265a5daab941e235541174b7f0b70821a0491c3cd1e
+  sha256: 9805db6db25824f6dee11edabe9f9ab7446ced10119a2541da6d5d5e45a2f68a
 
 build:
   number: 0
@@ -29,14 +29,14 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
-    - setuptools >=20.2.2
+    - python >=3.9
+    - setuptools >=61
   run:
     - astropy >=3.0.0
     - beautifulsoup4
     - coloredlogs
     - gwdatafind
-    - gwpy >=2.0.0
+    - gwpy >=3.0.0
     - gwtrigfind
     - lalsuite
     - lscsoft-glue >=2.0.0
@@ -46,7 +46,7 @@ requirements:
     - numpy >=1.16
     - pandas
     - pycondor
-    - python >=3.6
+    - python >=3.9
     - pygments >=2.7.3
     - pytz
     - python-ldas-tools-framecpp
@@ -57,7 +57,7 @@ test:
   requires:
     - flake8
     - pytest >=3.3.0
-    - pytest-cov >2.4.0
+    - pytest-cov >=2.4.0
   imports:
     - gwdetchar
     - gwdetchar.cds
