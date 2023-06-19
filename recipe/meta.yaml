@@ -1,5 +1,5 @@
 {% set name = "gwdetchar" %}
-{% set version = "2.1.0" %}
+{% set version = "2.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9805db6db25824f6dee11edabe9f9ab7446ced10119a2541da6d5d5e45a2f68a
+  sha256: 8a4cf22fc2cf9128dd45f3e820d089d9a7f6c31b1fd6a2e293cb73fb06d4c82c
 
 build:
   number: 0
@@ -39,7 +39,6 @@ requirements:
     - gwpy >=3.0.0
     - gwtrigfind
     - lalsuite
-    - lscsoft-glue >=2.0.0
     - lxml
     - markuppy >=1.14
     - matplotlib-base >=3.1.0
@@ -48,6 +47,7 @@ requirements:
     - pycondor
     - python >=3.9
     - pygments >=2.7.3
+    - python-ligo-lw
     - pytz
     - python-ldas-tools-framecpp
     - scikit-learn
