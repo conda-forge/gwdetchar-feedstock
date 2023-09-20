@@ -10,7 +10,7 @@ source:
   sha256: e3762f413e3a5c0ad09e0cd4cff9a867532073d7bdcff33c6643251f6ab8195b
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
   entry_points:
@@ -30,7 +30,7 @@ requirements:
   host:
     - pip
     - python >=3.9
-    - setuptools >=61
+    - setuptools-scm
   run:
     - astropy >=3.0.0
     - beautifulsoup4
