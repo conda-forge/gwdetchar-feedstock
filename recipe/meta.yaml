@@ -1,5 +1,5 @@
 {% set name = "gwdetchar" %}
-{% set version = "2.2.6" %}
+{% set version = "2.2.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b9c72480d5a92e78d256a04483a57af744cfae130031c3e3ad4d9c050f485ec5
+  sha256: 12192ed49d027c81f47276878052bf9a5b9989f0e077069be4be4dd6899afe46
 
 build:
   number: 0
@@ -42,7 +42,7 @@ requirements:
     - lxml
     - markuppy >=1.14
     - matplotlib-base >=3.1.0,<=3.7.1
-    - numpy >=1.16
+    - numpy >=1.16,<2.0
     - pandas
     - pycondor
     - python >=3.9
