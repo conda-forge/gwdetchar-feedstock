@@ -10,7 +10,7 @@ source:
   sha256: 12192ed49d027c81f47276878052bf9a5b9989f0e077069be4be4dd6899afe46
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
   entry_points:
@@ -32,7 +32,7 @@ requirements:
     - python >=3.9
     - setuptools-scm
   run:
-    - astropy >=3.0.0
+    - astropy-base >=3.0.0
     - beautifulsoup4
     - coloredlogs
     - gwdatafind
