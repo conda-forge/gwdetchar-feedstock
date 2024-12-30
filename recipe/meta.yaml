@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 12192ed49d027c81f47276878052bf9a5b9989f0e077069be4be4dd6899afe46
 
 build:
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
   entry_points:
@@ -29,7 +29,8 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.9
+    - python {{ python_min }}
+    - setuptools
     - setuptools-scm
   run:
     - astropy-base >=3.0.0
@@ -45,7 +46,7 @@ requirements:
     - numpy >=1.16,<2.0
     - pandas
     - pycondor
-    - python >=3.9
+    - python >={{ python_min }}
     - pygments >=2.7.3
     - python-ligo-lw
     - pytz
@@ -59,6 +60,7 @@ test:
     - pip
     - pytest >=3.3.0
     - pytest-cov >=2.4.0
+    - python {{ python_min }}
   imports:
     - gwdetchar
     - gwdetchar.cds
