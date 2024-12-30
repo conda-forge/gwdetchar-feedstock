@@ -10,7 +10,7 @@ source:
   sha256: 12192ed49d027c81f47276878052bf9a5b9989f0e077069be4be4dd6899afe46
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
   entry_points:
@@ -32,7 +32,7 @@ requirements:
     - python >=3.9
     - setuptools-scm
   run:
-    - astropy >=3.0.0
+    - astropy-base >=3.0.0
     - beautifulsoup4
     - coloredlogs
     - gwdatafind
@@ -56,6 +56,7 @@ requirements:
 test:
   requires:
     - flake8
+    - pip
     - pytest >=3.3.0
     - pytest-cov >=2.4.0
   imports:
@@ -81,6 +82,9 @@ test:
     - gwdetchar.scattering.plot
     - gwdetchar.utils
   commands:
+    # check metadata
+    - python -m pip check
+    - python -m pip show gwdetchar
     # run unit tests
     - python -m pytest --verbose --pyargs {{ name }}
     # check scripts run ok
