@@ -10,7 +10,7 @@ source:
   sha256: 921012dbca5fe6fa5d98af64382f974aff1575fd8bed8e8bcf15b8dfb25c7e55
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
   entry_points:
@@ -42,7 +42,7 @@ requirements:
     - lalsuite
     - lxml
     - markuppy >=1.14
-    - matplotlib >=3.9
+    - matplotlib-base >=3.9
     - numpy >=1.16
     - pandas
     - pycondor
