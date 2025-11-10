@@ -1,5 +1,5 @@
 {% set name = "gwdetchar" %}
-{% set version = "2.3.1" %}
+{% set version = "2.3.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: dc116f2ccf7475ce01078e0395d387cfb4fa7b2792a3c95d4e6f0359a1a26f06
+  sha256: 8991da302a100a4a0ea6a2c1c29a3779c2ceaa24f48fbd23d7833d250e8b225a
 
 build:
   number: 0
@@ -39,6 +39,7 @@ requirements:
     - gwdatafind
     - gwpy >=3.0.10
     - gwtrigfind
+    - igwn-ligolw
     - lalsuite
     - lxml
     - markuppy >=1.14
@@ -48,7 +49,6 @@ requirements:
     - pycondor
     - python >={{ python_min }}
     - pygments >=2.7.3
-    - python-ligo-lw
     - pytz
     - python-ldas-tools-framecpp
     - scikit-learn
@@ -63,18 +63,13 @@ test:
     - python {{ python_min }}
   imports:
     - gwdetchar
-    - gwdetchar.cds
-    - gwdetchar.cli
-    - gwdetchar.condor
     - gwdetchar.const
-    - gwdetchar.daq
     - gwdetchar.io
     - gwdetchar.io.html
     - gwdetchar.io.datafind
     - gwdetchar.lasso
     - gwdetchar.lasso.plot
     - gwdetchar.nagios
-    - gwdetchar.plot
     - gwdetchar.omega
     - gwdetchar.omega.plot
     - gwdetchar.omega.html
@@ -83,6 +78,13 @@ test:
     - gwdetchar.scattering
     - gwdetchar.scattering.plot
     - gwdetchar.utils
+    - gwdetchar.utils.cds
+    - gwdetchar.utils.cli
+    - gwdetchar.utils.condor
+    - gwdetchar.utils.daq
+    - gwdetchar.utils.plot
+    - gwdetchar.utils.segments
+    - gwdetchar.utils.utils
   commands:
     # check metadata
     - python -m pip check
@@ -114,7 +116,6 @@ about:
 
 extra:
   recipe-maintainers:
-    - alurban
     - duncanmmacleod
     - eagoetz
     - areeda
