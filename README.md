@@ -1,17 +1,18 @@
 About gwdetchar-feedstock
 =========================
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gwdetchar-feedstock-eg-feedstock/blob/main/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gwdetchar-feedstock/blob/main/LICENSE.txt)
 
-Home: https://gwdetchar.readthedocs.io
+Home: https://gwdetchar.readthedocs.io/
 
 Package license: GPL-3.0-or-later
 
 Summary: A python package for gravitational-wave detector characterisation
 
+Development: https://github.com/gwdetchar/gwdetchar
+
 This package provides a set of python utilities for gravitational-wave
 detector characterisation and data quality.
-
 
 Current build status
 ====================
@@ -20,8 +21,8 @@ Current build status
 <table><tr>
     <td>All platforms:</td>
     <td>
-      <a href="https://github.com/conda-forge/gwdetchar-feedstock-eg-feedstock/actions/workflows/conda-build.yml">
-        <img src="https://github.com/conda-forge/gwdetchar-feedstock-eg-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      <a href="https://github.com/conda-forge/gwdetchar-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/gwdetchar-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
       </a>
     </td>
   </tr>
